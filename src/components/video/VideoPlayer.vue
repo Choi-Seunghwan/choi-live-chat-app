@@ -1,15 +1,18 @@
 <template>
   <div class="videoPlayer">
     <h4>remote Video</h4>
-    <video autoplay playsinline ref="remoteVideo" id="remoteVideo" width="300" height="200"></video>
+    <Video :videoId="'remoteVideo'" />
     <p />
     <hr />
     <h4>local Video</h4>
-    <video autoplay playsinline ref="localVideo" id="localVideo" width="300" height="200"></video>
+    <Video :videoId="'localVideo'" />
   </div>
 </template>
 <script>
+import Video from './Video.vue';
+
 export default {
+  components: { Video },
   name: 'videoPlayer',
   data() {
     return {
@@ -18,9 +21,7 @@ export default {
       pc: undefined
     };
   },
-  props: {
-    msg: String
-  },
+  props: {},
   mounted() {
     this.localVideoEl = this.$refs['localVideo'];
     this.remoteVideoEl = this.$refs['remoteVideo'];
