@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import connection from './modules/connection';
+import connection from './connection.js';
 
 Vue.use(Vuex);
 

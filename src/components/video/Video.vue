@@ -1,13 +1,20 @@
 <template>
   <div class="video">
-    <video autoplay :id="videoId" width="300" height="200"></video>
+    <video ref="video" autoplay width="300" height="200"></video>
+    <div>
+      <button @click="getDeviceMedia"></button>
+    </div>
   </div>
 </template>
 <script>
 export default {
-  name: 'video',
+  name: 'videoItem',
   data() {
-    return {};
+    return {
+      videoEl: undefined,
+      deviceMedia: undefined,
+      localStream: undefined
+    };
   },
   props: {
     videoId: {
@@ -17,8 +24,22 @@ export default {
     }
   },
   mounted() {
-    this.localVideoEl = this.$refs['localVideo'];
-    this.remoteVideoEl = this.$refs['remoteVideo'];
+    this.$nextTick(() => {
+      this.videoEl = this.$refs['video'];
+    });
+  },
+  methods: {
+    getDeviceMedia() {
+      if ('mediaDevices' in navigator) {
+        try {
+          this.deviceMedia = navigator.mediaDevices.getUserMedia({ audio: true, video: true }, stream => {
+            this.videoEl.src = window.URL.createObjectURL(stream);
+          });
+        } catch (error) {
+          console.log('error');
+        }
+      }
+    }
   }
 };
 </script>
