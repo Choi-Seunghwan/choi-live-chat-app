@@ -1,5 +1,2 @@
 [[redirects]]
-  from = "https://choi-live-chat.netlify.app/*"
-  to = "https://choi-live-chat.netlify.app/"
-  status = 301
-  force = true
+/*   /index.html   200
