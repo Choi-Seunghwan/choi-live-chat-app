@@ -1,5 +1,8 @@
 <template>
-  <div>Home!</div>
+  <div>
+    Home!
+    <VideoPlayer />
+  </div>
 </template>
 <script>
 export default {};
