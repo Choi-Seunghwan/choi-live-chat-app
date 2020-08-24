@@ -3,6 +3,7 @@
     <video ref="video" autoplay width="300" height="200"></video>
     <div>
       <button @click="getDeviceMedia"></button>
+      <p>{{ text }}</p>
     </div>
   </div>
 </template>
@@ -12,7 +13,8 @@ export default {
   data() {
     return {
       videoEl: undefined,
-      deviceMedia: undefined
+      deviceMedia: undefined,
+      text: 'test'
     };
   },
   props: {
@@ -25,27 +27,21 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.videoEl = this.$refs['video'];
+      // this.videoEl.src = 'https://www.w3schools.com/tags/movie.ogg';
       console.log(this.videoEl);
     });
   },
   methods: {
-    getDeviceMedia() {
-      console.log('hihi', this.videoEl);
+    async getDeviceMedia() {
       if ('mediaDevices' in navigator) {
         try {
-          this.deviceMedia = navigator.mediaDevices.getUserMedia({ audio: true, video: true }, stream => {
-            if ('srcObject' in this.videoEl) {
-              this.videoEl.srcObject = stream;
-            } else {
-              this.videoEl.src = window.URL.createObjectURL(stream);
-            }
+          const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+          // const videoTracks = stream.getVideoTracks();
+          // const track = videoTracks[0];
 
-            this.videoEl.onloadedmetadata = () => {
-              this.videoEl.play();
-            };
-          });
+          this.videoEl.srcObject = stream;
         } catch (error) {
-          console.log('error');
+          alert(error);
         }
       }
     }
