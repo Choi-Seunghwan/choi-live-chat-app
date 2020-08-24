@@ -1,7 +1,6 @@
 <template>
   <div>
     Home!
-    <VideoPlayer />
   </div>
 </template>
 <script>

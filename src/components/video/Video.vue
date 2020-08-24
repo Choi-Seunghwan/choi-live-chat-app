@@ -12,8 +12,7 @@ export default {
   data() {
     return {
       videoEl: undefined,
-      deviceMedia: undefined,
-      localStream: undefined
+      deviceMedia: undefined
     };
   },
   props: {
@@ -26,10 +25,12 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.videoEl = this.$refs['video'];
+      console.log(this.videoEl);
     });
   },
   methods: {
     getDeviceMedia() {
+      console.log('hihi', this.videoEl);
       if ('mediaDevices' in navigator) {
         try {
           this.deviceMedia = navigator.mediaDevices.getUserMedia({ audio: true, video: true }, stream => {
