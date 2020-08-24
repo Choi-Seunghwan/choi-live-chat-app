@@ -34,7 +34,15 @@ export default {
       if ('mediaDevices' in navigator) {
         try {
           this.deviceMedia = navigator.mediaDevices.getUserMedia({ audio: true, video: true }, stream => {
-            this.videoEl.src = window.URL.createObjectURL(stream);
+            if ('srcObject' in this.videoEl) {
+              this.videoEl.srcObject = stream;
+            } else {
+              this.videoEl.src = window.URL.createObjectURL(stream);
+            }
+
+            this.videoEl.onloadedmetadata = () => {
+              this.videoEl.play();
+            };
           });
         } catch (error) {
           console.log('error');
