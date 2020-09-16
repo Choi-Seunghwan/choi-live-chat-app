@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin theme($name) {
+  .#{$name} {
+    .TopNav {
+      background: #1e1146;
+    }
+  }
+}
