@@ -1,12 +1,7 @@
+@import 'theme';
+
 body {
   margin: 0;
   padding: 0;
-}
-
-@mixin theme($name) {
-  .#{$name} {
-    .TopNav {
-      background: #1e1146;
-    }
-  }
+  @include theme-color('background', 'color-background');
 }

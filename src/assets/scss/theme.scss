@@ -1,0 +1,20 @@
+@mixin theme-color($key, $color) {
+  @each $theme-name, $theme-color in $theme-color-palette {
+    .theme-#{$theme-name} & {
+      #{$key}: map-get(map-get($theme-color-palette, $theme-name), $color);
+    }
+  }
+}
+
+$theme-color-palette: (
+  default: (
+    color-background: #eeeeee,
+    color-primary: #1e1146,
+    color-secondary: #0db4ba,
+    color-third: #f0a29e,
+    color-accent: #e76c89
+  ),
+  dark: (
+    color-background: black
+  )
+);
