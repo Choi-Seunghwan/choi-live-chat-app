@@ -7,5 +7,14 @@ module.exports = {
         '@': path.join(__dirname, 'src/')
       }
     }
+  },
+
+  pluginOptions: {
+    i18n: {
+      locale: 'ko',
+      fallbackLocale: 'en',
+      localeDir: 'locales',
+      enableInSFC: true
+    }
   }
 };

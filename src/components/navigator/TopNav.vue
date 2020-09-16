@@ -1,5 +1,9 @@
 <template>
-  <div class="TopNav"></div>
+  <div class="topNav">
+    <div class="topNav__title">
+      {{ $t('title') }}
+    </div>
+  </div>
 </template>
 <script>
 export default {
@@ -9,9 +13,12 @@ export default {
 <style lang="scss">
 @import '@/assets/scss/theme';
 
-.TopNav {
+.topNav {
   @include theme-color('background', 'color-primary');
   width: 100%;
-  height: 96px;
+  height: 56px;
+
+  &__title {
+  }
 }
 </style>
