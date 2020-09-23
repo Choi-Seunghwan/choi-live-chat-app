@@ -1,9 +1,9 @@
 <template>
-  <div class="liveRoom">
-    <div class="liveRoom__top"></div>
-    LiveRoom!
+  <div class="room">
+    <div class="room__top"></div>
+    Room!
     <VideoPlayer />
-    <div class="liveRoom__bottom"></div>
+    <div class="room__bottom"></div>
   </div>
 </template>
 <script>
