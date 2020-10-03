@@ -6,7 +6,9 @@ const mutations = {};
 
 const getters = {};
 
-const actions = {};
+const actions = {
+  init() {}
+};
 
 export default {
   state,

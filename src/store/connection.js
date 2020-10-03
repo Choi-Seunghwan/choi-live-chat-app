@@ -1,4 +1,5 @@
 const state = () => ({
+  isConnected: false,
   peerConnection: undefined
 });
 
