@@ -1,17 +1,15 @@
 <template>
   <div class="room">
-    <div class="room__top"></div>
-    Room!
-    <VideoPlayer />
-    <div class="room__bottom"></div>
+    <RoomViewer></RoomViewer>
   </div>
 </template>
 <script>
-import VideoPlayer from '@/components/video/VideoPlayer.vue';
+import RoomViewer from '@/components/room/RoomViewer.vue';
 export default {
   components: {
-    VideoPlayer
+    RoomViewer
   },
+  props: {},
   mounted() {}
 };
 </script>

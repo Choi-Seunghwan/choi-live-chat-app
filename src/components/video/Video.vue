@@ -1,6 +1,6 @@
 <template>
   <div class="video">
-    <video ref="video" autoplay width="300" height="200"></video>
+    <video :ref="`video_${videoId}`" autoplay :id="videoId" width="300" height="200"></video>
   </div>
 </template>
 <script>

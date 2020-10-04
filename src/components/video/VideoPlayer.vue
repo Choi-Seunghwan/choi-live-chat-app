@@ -1,6 +1,6 @@
 <template>
   <div class="videoPlayer">
-    <Video :videoId="'localVideo'" />
+    <Video :videoId="videoId" />
   </div>
 </template>
 <script>
@@ -12,7 +12,7 @@ export default {
   data() {
     return {};
   },
-  props: {},
+  props: { videoId: { type: String, required: true, default: 'video' } },
   mounted() {},
   methods: {}
 };
