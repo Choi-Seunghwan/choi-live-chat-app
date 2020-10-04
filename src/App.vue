@@ -9,11 +9,16 @@
 <script>
 import BaseLayout from '@/layouts/BaseLayout.vue';
 import '@/assets/scss/base.scss';
+import { mapAction } from 'vuex';
 
 export default {
   name: 'App',
   components: {
     BaseLayout
+  },
+  mounted() {},
+  methods: {
+    ...mapAction['']
   }
 };
 </script>
