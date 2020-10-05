@@ -16,9 +16,11 @@ export default {
   components: {
     BaseLayout
   },
-  mounted() {},
+  mounted() {
+    this.connection();
+  },
   methods: {
-    ...mapAction['']
+    ...mapAction(['connection', 'connection'])
   }
 };
 </script>
