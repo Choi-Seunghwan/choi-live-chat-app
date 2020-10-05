@@ -9,7 +9,7 @@
 <script>
 import BaseLayout from '@/layouts/BaseLayout.vue';
 import '@/assets/scss/base.scss';
-import { mapAction } from 'vuex';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'App',
@@ -20,7 +20,7 @@ export default {
     this.connection();
   },
   methods: {
-    ...mapAction(['connection', 'connection'])
+    ...mapActions('connection', ['connection'])
   }
 };
 </script>
