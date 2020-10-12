@@ -16,7 +16,7 @@ export default {
   components: {
     BaseLayout
   },
-  mounted() {
+  beforeCreate() {
     this.connection();
   },
   methods: {
