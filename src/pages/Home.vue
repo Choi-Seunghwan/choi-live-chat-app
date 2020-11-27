@@ -1,17 +1,17 @@
 <template>
   <div class="home">
-    <Banner></Banner>
-    <!-- <RoomList></RoomList> -->
+    <!-- <Banner></Banner> -->
+    <RoomList></RoomList>
   </div>
 </template>
 <script>
-import Banner from '@/components/Banner.vue';
-// import RoomList from '@/components/RoomList.vue';
+// import Banner from '@/components/Banner.vue';
+import RoomList from '@/components/roomList/RoomList.vue';
 
 export default {
   components: {
-    Banner
-    // RoomList
+    // Banner,
+    RoomList
   }
 };
 </script>
