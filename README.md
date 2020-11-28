@@ -1,24 +1,9 @@
-# choi-live-chat-app
+# vivi-app
 
-## Project setup
-```
-npm install
-```
+라이브 방송 플랫폼 Frontend.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### Tech
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- Vue
+- WebRTC
+- Node.js Server (Signaling Socket / REST API )
