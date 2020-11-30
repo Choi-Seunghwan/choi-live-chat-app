@@ -7,7 +7,7 @@
 </template>
 <script>
 import RoomCard from './RoomCard';
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   components: {
@@ -15,6 +15,9 @@ export default {
   },
   computed: {
     ...mapState('room', ['roomList'])
+  },
+  methods: {
+    ...mapActions('room', [''])
   }
 };
 </script>
