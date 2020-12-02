@@ -1,4 +1,4 @@
-import api from '../util/api';
+// import api from '../util/api';
 
 const state = () => ({
   roomList: {
@@ -18,9 +18,9 @@ const mutations = {};
 const getters = {};
 
 const actions = {
-  getRoomList({ commit }) {
-    api.get('/');
-  }
+  // getRoomList({ commit }) {
+  //   api.get('/');
+  // }
 };
 
 export default {

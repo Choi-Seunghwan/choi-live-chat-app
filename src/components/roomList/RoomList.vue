@@ -24,8 +24,10 @@ export default {
 <style scoped lang="scss">
 .roomList {
   display: flex;
+  flex-wrap: wrap;
 
   .roomItem {
+    flex: 0 0 25%;
     margin: 10px;
   }
 }
