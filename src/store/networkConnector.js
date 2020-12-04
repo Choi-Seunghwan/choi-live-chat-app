@@ -1,4 +1,4 @@
-import socket from '@/util/socket.js';
+import socket from '@/services/webSocket.js';
 
 const state = () => ({
   isConnected: false
