@@ -12,7 +12,7 @@ export default {
   data() {
     return {};
   },
-  props: { videoId: { type: String, required: true, default: 'video' } },
+  props: { videoId: { type: String, required: true, default: 'video' }, mediaStream: { required: false } },
   mounted() {},
   methods: {}
 };

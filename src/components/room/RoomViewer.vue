@@ -6,11 +6,10 @@
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex';
 import VideoPlayer from '@/components/video/VideoPlayer.vue';
-import WebRTC from '@/mixin/WebRTC.js';
 
 export default {
-  mixins: [WebRTC],
   components: {
     VideoPlayer
   },
@@ -18,9 +17,12 @@ export default {
   data() {
     return {};
   },
+  methods: {
+    ...mapActions('video', ['getDeviceMedia', 'setLocalStreamVideoEl'])
+  },
   async mounted() {
-    this.hello();
     await this.getDeviceMedia();
+    this.setLocalStreamVideoEl(this.refs.localVideo);
   }
 };
 </script>
