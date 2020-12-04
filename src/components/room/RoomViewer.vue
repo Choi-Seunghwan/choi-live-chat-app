@@ -1,12 +1,12 @@
 <template>
   <div class="roomViewer">
     <div class="info"></div>
-    <VideoPlayer :videoId="'localVideo'"></VideoPlayer>
-    <VideoPlayer :videoId="'roomVideo'"></VideoPlayer>
+    <VideoPlayer ref="localVideo" :videoId="'localVideo'"></VideoPlayer>
+    <VideoPlayer ref="roomVideo" :videoId="'roomVideo'"></VideoPlayer>
   </div>
 </template>
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 import VideoPlayer from '@/components/video/VideoPlayer.vue';
 
 export default {
@@ -17,12 +17,22 @@ export default {
   data() {
     return {};
   },
+  computed: {
+    ...mapState('video', ['localStream'])
+  },
   methods: {
-    ...mapActions('video', ['getDeviceMedia', 'setLocalStreamVideoEl'])
+    ...mapActions('video', ['getDeviceMedia', 'setLocalStreamVideoEl']),
+    init() {
+      this.$refs;
+    }
   },
   async mounted() {
     await this.getDeviceMedia();
-    this.setLocalStreamVideoEl(this.refs.localVideo);
+    console.log(this.$refs);
+    this.$nextTick(() => {
+      console.log(this.$refs.localVideo.getVideoEl());
+      this.setLocalStreamVideoEl(this.$refs.localVideo.getVideoEl());
+    });
   }
 };
 </script>
