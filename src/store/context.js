@@ -7,13 +7,15 @@ const mutations = {};
 const getters = {};
 
 const actions = {
-  init() {}
+  init() {
+    console.log('init');
+  }
 };
 
 export default {
+  namespaced: true,
   state,
   mutations,
   getters,
-  actions,
-  namespaced: true
+  actions
 };

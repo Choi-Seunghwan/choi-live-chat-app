@@ -1,11 +1,11 @@
-export const videoConf = {
+const webRTC = {
   data() {
     return {
       localStream: undefined
     };
   },
 
-  method: {
+  methods: {
     async getDeviceMedia() {
       if ('mediaDevices' in navigator) {
         try {
@@ -15,7 +15,9 @@ export const videoConf = {
           alert(error);
         }
       }
-    },
-    getAudioVideo() {}
-  }
+    }
+  },
+  mounted() {}
 };
+
+export default webRTC;

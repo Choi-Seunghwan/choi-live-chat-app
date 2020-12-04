@@ -5,7 +5,6 @@
   </div>
 </template>
 <script>
-import { mapActions } from 'vuex';
 import TopNav from '@/components/navigator/TopNav.vue';
 
 export default {
@@ -18,12 +17,8 @@ export default {
       theme: 'default'
     };
   },
-  mounted() {
-    this.init();
-  },
-  methods: {
-    ...mapActions('context', ['init'])
-  }
+  mounted() {},
+  methods: {}
 };
 </script>
 <style lang="scss">

@@ -16,11 +16,13 @@ export default {
   components: {
     BaseLayout
   },
-  beforeCreate() {
+  mounted() {
+    this.init();
     this.connection();
   },
   methods: {
-    ...mapActions('connection', ['connection'])
+    ...mapActions('context', ['init']),
+    ...mapActions('networkConnector', ['connection'])
   }
 };
 </script>

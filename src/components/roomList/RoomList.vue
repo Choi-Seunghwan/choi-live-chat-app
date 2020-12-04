@@ -1,7 +1,7 @@
 <template>
   <div class="roomList">
     <div class="roomItem" v-for="(roomItem, roomListIndex) in roomList" :key="roomListIndex">
-      <RoomCard :title="roomItem.title" :memberCount="roomItem.memberCount" />
+      <RoomCard @click="roomCardClickHandler" :title="roomItem.title" :memberCount="roomItem.memberCount" />
     </div>
   </div>
 </template>
@@ -17,7 +17,8 @@ export default {
     ...mapState('room', ['roomList'])
   },
   methods: {
-    ...mapActions('room', [''])
+    ...mapActions('room', ['']),
+    roomCardClickHandler() {}
   }
 };
 </script>
