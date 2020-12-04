@@ -1,7 +1,9 @@
 <template>
   <div :class="theme" class="layout">
     <TopNav />
-    <slot></slot>
+    <div class="wrapper">
+      <slot></slot>
+    </div>
   </div>
 </template>
 <script>
@@ -21,9 +23,3 @@ export default {
   methods: {}
 };
 </script>
-<style lang="scss">
-.Layout {
-  width: 100%;
-  height: 100%;
-}
-</style>

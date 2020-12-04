@@ -3,6 +3,8 @@
     <div class="info"></div>
     <VideoPlayer ref="localVideo" :videoId="'localVideo'"></VideoPlayer>
     <VideoPlayer ref="roomVideo" :videoId="'roomVideo'"></VideoPlayer>
+
+    <button @click="callHandler">Call User</button>
   </div>
 </template>
 <script>
@@ -18,23 +20,21 @@ export default {
     return {};
   },
   computed: {
-    ...mapState('video', ['localStream'])
+    ...mapState('media', ['localStream'])
   },
   methods: {
-    ...mapActions('video', ['getDeviceMedia', 'setLocalStreamVideoEl']),
-    init() {
-      this.$refs;
+    ...mapActions('room', ['callUser']),
+    ...mapActions('media', ['getDeviceMedia', 'createOffer', 'setLocalStreamVideoEl']),
+    callHandler() {
+      const offer = this.createOffer();
+      this.callUser(offer);
     }
   },
   async mounted() {
     await this.getDeviceMedia();
-    console.log(this.$refs);
     this.$nextTick(() => {
-      console.log(this.$refs.localVideo.getVideoEl());
       this.setLocalStreamVideoEl(this.$refs.localVideo.getVideoEl());
     });
   }
 };
 </script>
-
-<style lang="scss" scoped></style>

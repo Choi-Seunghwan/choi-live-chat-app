@@ -1,4 +1,5 @@
 // import api from '../util/api';
+import socket from '../util/socket.js';
 
 const state = () => ({
   roomList: {
@@ -21,6 +22,13 @@ const actions = {
   // getRoomList({ commit }) {
   //   api.get('/');
   // }
+  roomEnter() {
+    socket.connection();
+  },
+
+  callUser(offer) {
+    socket.callUser(offer);
+  }
 };
 
 export default {

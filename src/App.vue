@@ -9,6 +9,7 @@
 <script>
 import BaseLayout from '@/layouts/BaseLayout.vue';
 import '@/assets/scss/base.scss';
+import '@/assets/scss/roomList.scss';
 import { mapActions } from 'vuex';
 
 export default {
@@ -17,19 +18,21 @@ export default {
     BaseLayout
   },
   mounted() {
-    this.init();
-    this.connection();
+    this.initContext();
+    this.initMedia();
+    // this.connection();
   },
   methods: {
-    ...mapActions('context', ['init']),
-    ...mapActions('networkConnector', ['connection'])
+    ...mapActions('context', ['initContext']),
+    ...mapActions('media', ['initMedia'])
+    // ...mapActions('networkConnector', ['connection'])
   }
 };
 </script>
 
 <style>
 #app {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 </style>

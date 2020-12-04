@@ -7,7 +7,7 @@ const mutations = {};
 const getters = {};
 
 const actions = {
-  init() {
+  initContext() {
     console.log('init');
   }
 };
