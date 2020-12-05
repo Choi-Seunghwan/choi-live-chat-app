@@ -1,5 +1,6 @@
 import ws from '../services/webSocket.js';
 import api from '../services/api.js';
+import { HTTP_STATUS } from '../util/constant';
 
 const state = () => ({
   roomList: [],
@@ -15,9 +16,11 @@ const actions = {
     ws.connection();
   },
 
-  getRoomList() {
-    api.get('room/roomList', response => {
-      console.log('roomList', response);
+  async getRoomList({ state }) {
+    await api.get('room/roomList', (status, data) => {
+      if (status === HTTP_STATUS.OK && data.roomList) {
+        state.roomList = data.roomList;
+      }
     });
   },
 
