@@ -11,9 +11,6 @@ const mutations = {};
 const getters = {};
 
 const actions = {
-  // getRoomList({ commit }) {
-  //   api.get('/');
-  // }
   roomEnter() {
     ws.connection();
   },

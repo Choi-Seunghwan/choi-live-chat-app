@@ -3,7 +3,7 @@ import axios from 'axios';
 class API {
   constructor() {
     let api = axios.create({
-      baseURL: process.env.VUE_APP_API_SERVER_ADDR
+      baseURL: process.env.VUE_APP_API_SERVER_ADDR + '/api'
     });
     api.interceptors.response.use(this.handleSuccess, this.handleError);
     this.api = api;
