@@ -1,7 +1,9 @@
 <template>
   <div class="roomList">
-    <div class="roomItem" v-for="(roomItem, roomListIndex) in roomList" :key="roomListIndex">
-      <RoomCard @click="roomCardClickHandler" :title="roomItem.title" :memberCount="roomItem.memberCount" />
+    <div class="roomItemContainer" v-for="(roomItem, roomListIndex) in roomList" :key="roomListIndex">
+      <div class="roomItem">
+        <RoomCard @click="roomCardClickHandler" :title="roomItem.title" :memberCount="roomItem.memberCount" />
+      </div>
     </div>
   </div>
 </template>
@@ -25,3 +27,24 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+.roomList {
+  display: flex;
+  flex-wrap: wrap;
+
+  .roomItemContainer {
+    flex: 0 0 100%;
+
+    @media (min-width: 520px) {
+      flex: 0 0 50%;
+    }
+    @media (min-width: 992px) {
+      flex: 0 0 25%;
+    }
+
+    .roomItem {
+      margin: 10px;
+    }
+  }
+}
+</style>

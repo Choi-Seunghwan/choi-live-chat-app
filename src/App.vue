@@ -9,7 +9,6 @@
 <script>
 import BaseLayout from '@/layouts/BaseLayout.vue';
 import '@/assets/scss/base.scss';
-import '@/assets/scss/roomList.scss';
 import { mapActions } from 'vuex';
 
 export default {
