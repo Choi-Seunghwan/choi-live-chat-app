@@ -1,13 +1,28 @@
 <template>
-  <div class="topNav">
-    <div class="topNav__title">
-      {{ $t('title') }}
+  <nav class="topNav">
+    <div class="logoWrapper">
+      <h1 @click="titleClickHandler" class="logoWrapper__logo">
+        {{ $t('logo') }}
+      </h1>
     </div>
-  </div>
+    <div class="userWrapper">
+      <User />
+    </div>
+  </nav>
 </template>
 <script>
+import User from '@/components/account/User';
+
 export default {
-  name: 'TopNav'
+  name: 'TopNav',
+  components: {
+    User
+  },
+  methods: {
+    titleClickHandler() {
+      this.$router.push('/');
+    }
+  }
 };
 </script>
 <style lang="scss">
@@ -17,8 +32,20 @@ export default {
   @include theme-color('background', 'color-primary');
   width: 100%;
   height: 56px;
+  display: flex;
+  justify-content: space-between;
 
-  &__title {
+  .logoWrapper {
+    &__logo {
+      color: #ffffff;
+      margin: 12px;
+      width: fit-content;
+      cursor: pointer;
+    }
+  }
+
+  .userWrapper {
+    margin: 12px;
   }
 }
 </style>

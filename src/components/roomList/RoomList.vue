@@ -7,14 +7,17 @@
 </template>
 <script>
 import RoomCard from './RoomCard';
-import { mapState, mapActions } from 'vuex';
+import { mapActions } from 'vuex';
 
 export default {
   components: {
     RoomCard
   },
-  computed: {
-    ...mapState('room', ['roomList'])
+  props: {
+    roomList: {
+      required: true,
+      default: []
+    }
   },
   methods: {
     ...mapActions('room', ['']),

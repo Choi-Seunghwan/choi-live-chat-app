@@ -1,18 +1,21 @@
 <template>
   <div class="home">
     <!-- <Banner></Banner> -->
-    <RoomList></RoomList>
+    <RoomList :roomList="roomList"></RoomList>
   </div>
 </template>
 <script>
 // import Banner from '@/components/Banner.vue';
-import { mapActions } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import RoomList from '@/components/roomList/RoomList.vue';
 
 export default {
   components: {
     // Banner,
     RoomList
+  },
+  computed: {
+    ...mapState('room', ['roomList'])
   },
   methods: {
     ...mapActions('room', ['getRoomList'])
