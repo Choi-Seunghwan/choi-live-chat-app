@@ -15,10 +15,10 @@ export default {
     RoomList
   },
   computed: {
-    ...mapState('room', ['roomList'])
+    ...mapState('live', ['roomList'])
   },
   methods: {
-    ...mapActions('room', ['getRoomList'])
+    ...mapActions('live', ['getRoomList'])
   },
   mounted() {
     this.getRoomList();

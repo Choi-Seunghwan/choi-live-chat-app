@@ -1,5 +1,5 @@
 <template>
-  <div class="roomViewer">
+  <div class="liveViewer">
     <div class="info"></div>
     <VideoPlayer ref="localVideo" :videoId="'localVideo'"></VideoPlayer>
     <VideoPlayer ref="roomVideo" :videoId="'roomVideo'"></VideoPlayer>
@@ -23,7 +23,7 @@ export default {
     ...mapState('media', ['localStream'])
   },
   methods: {
-    ...mapActions('room', ['callUser']),
+    ...mapActions('live', ['callUser']),
     ...mapActions('media', ['getDeviceMedia', 'createOffer', 'setLocalStreamVideoEl']),
     callHandler() {
       const offer = this.createOffer();

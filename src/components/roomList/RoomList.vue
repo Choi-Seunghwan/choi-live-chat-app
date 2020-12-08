@@ -22,7 +22,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions('room', ['']),
+    ...mapActions('live', ['roomEnter']),
     roomCardClickHandler() {}
   }
 };

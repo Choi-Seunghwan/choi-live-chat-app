@@ -17,7 +17,7 @@ const actions = {
   },
 
   async getRoomList({ state }) {
-    await api.get('room/roomList', (status, data) => {
+    await api.get('live/roomList', (status, data) => {
       if (status === HTTP_STATUS.OK && data.roomList) {
         state.roomList = data.roomList;
       }

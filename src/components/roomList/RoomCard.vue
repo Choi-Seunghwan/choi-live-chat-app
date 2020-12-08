@@ -24,6 +24,7 @@ export default {
   transition: box-shadow 150ms linear;
   border: 1px solid rgba(0, 0, 0, 0.12);
   height: 260px;
+  cursor: pointer;
 
   &:hover {
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.08), 0 0 15px 0 rgba(0, 0, 0, 0.02), 0 0 20px 4px rgba(0, 0, 0, 0.06);

@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/pages/Home.vue';
-import Room from '@/pages/Room.vue';
+import Live from '@/pages/Live.vue';
 import NotFound from '@/pages/NotFound.vue';
 
 Vue.use(Router);
@@ -16,9 +16,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/room',
-      name: 'room',
-      component: Room
+      path: '/live',
+      name: 'live',
+      component: Live
     },
     {
       path: '*',

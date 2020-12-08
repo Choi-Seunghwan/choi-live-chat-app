@@ -19,11 +19,13 @@ export default {
   mounted() {
     this.initContext();
     this.initMedia();
+    this.initAccount();
     // this.connection();
   },
   methods: {
     ...mapActions('context', ['initContext']),
-    ...mapActions('media', ['initMedia'])
+    ...mapActions('media', ['initMedia']),
+    ...mapActions('account', ['initAccount'])
     // ...mapActions('networkConnector', ['connection'])
   }
 };

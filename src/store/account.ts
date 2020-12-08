@@ -16,12 +16,13 @@ const getters = {
 };
 
 const actions = {
-  initAccount() {
-    console.log('init');
+  initAccount({ dispatch }) {
+    dispatch('login');
   },
+
   async login({ state }) {
     await api.get('account/login', (status, data) => {
-      if (status === HTTP_STATUS.OK && data.roomList) {
+      if (status === HTTP_STATUS.OK && data) {
         state.nickname = data.nickname;
         state.loggedIn = data.result;
       }

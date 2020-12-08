@@ -17,9 +17,7 @@ const mutations = {
 const getters = {};
 
 const actions = {
-  initContext() {
-    console.log('initContext');
-  },
+  initContext() {},
 
   setDimmed({ commit }, dimmed) {
     commit('setDimmed', dimmed);

@@ -1,13 +1,13 @@
 <template>
-  <div class="room">
-    <RoomViewer></RoomViewer>
+  <div class="live">
+    <LiveViewer></LiveViewer>
   </div>
 </template>
 <script>
-import RoomViewer from '@/components/room/RoomViewer.vue';
+import LiveViewer from '@/components/live/LiveViewer.vue';
 export default {
   components: {
-    RoomViewer
+    LiveViewer
   },
   props: {},
   mounted() {}
