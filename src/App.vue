@@ -20,13 +20,13 @@ export default {
     this.initContext();
     this.initMedia();
     this.initAccount();
-    // this.connection();
+    this.connection();
   },
   methods: {
     ...mapActions('context', ['initContext']),
     ...mapActions('media', ['initMedia']),
-    ...mapActions('account', ['initAccount'])
-    // ...mapActions('networkConnector', ['connection'])
+    ...mapActions('account', ['initAccount']),
+    ...mapActions('networkConnector', ['connection'])
   }
 };
 </script>

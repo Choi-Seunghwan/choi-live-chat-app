@@ -5,7 +5,8 @@ module.exports = {
     resolve: {
       alias: {
         '@': path.join(__dirname, 'src/')
-      }
+      },
+      extensions: ['.ts', '.tsx', '.js', '.json']
     },
     optimization: {
       minimize: false

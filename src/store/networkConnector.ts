@@ -1,4 +1,4 @@
-import socket from '@/services/webSocket.js';
+import ws from '../services/webSocket.js';
 
 const state = () => ({
   isConnected: false
@@ -10,7 +10,7 @@ const getters = {};
 
 const actions = {
   connection() {
-    socket.connection();
+    ws.connection();
   }
 };
 
