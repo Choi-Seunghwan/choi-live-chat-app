@@ -3,5 +3,9 @@
   "home": "홈",
   "live": "라이브",
   "startLive": "방송하기",
+  "liveType": "방송 유형",
+  "broadcast": "방송",
+  "radio": "라디오",
+  "title": "제목",
   "message": "hello i18n !!"
 }

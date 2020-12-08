@@ -12,6 +12,8 @@ const mutations = {};
 const getters = {};
 
 const actions = {
+  startLive() {},
+
   roomEnter() {
     ws.connection();
   },

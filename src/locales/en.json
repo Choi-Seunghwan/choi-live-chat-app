@@ -3,5 +3,9 @@
   "home": "Home",
   "live": "Live",
   "startLive": "Start Live",
+  "liveType": "Live Type",
+  "broadcast": "Broadcast",
+  "radio": "Radio",
+  "title": "Title",
   "message": "hello i18n !!"
 }

@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/pages/Home.vue';
 import Live from '@/pages/Live.vue';
+import StartLive from '@/pages/StartLive.vue';
 import NotFound from '@/pages/NotFound.vue';
 
 Vue.use(Router);
@@ -19,6 +20,11 @@ export default new Router({
       path: '/live',
       name: 'live',
       component: Live
+    },
+    {
+      path: '/startLive',
+      name: 'startLive',
+      component: StartLive
     },
     {
       path: '*',
