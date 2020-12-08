@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import context from './context';
+import context from './context.ts';
 import networkConnector from './networkConnector';
 import room from './room.ts';
 import media from './media.ts';
