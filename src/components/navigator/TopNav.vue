@@ -44,7 +44,7 @@ export default {
   height: 56px;
   display: flex;
   justify-content: space-between;
-  z-index: 1;
+  z-index: 3;
 
   .leftWrapper {
     display: flex;

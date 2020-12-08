@@ -19,6 +19,9 @@
         <input :placeholder="$t('title')" class="title__input" />
       </div>
     </div>
+    <div class="interface">
+      <button>{{ $t('startLive') }}</button>
+    </div>
   </div>
 </template>
 
@@ -54,6 +57,11 @@ export default {};
         width: 100%;
       }
     }
+  }
+
+  .interface {
+    margin-top: 15px;
+    text-align: center;
   }
 }
 </style>

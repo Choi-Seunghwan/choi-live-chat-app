@@ -9,7 +9,7 @@
           <router-link :to="{ path: '/' }" class="nav__item">{{ $t('live') }}</router-link>
         </li>
         <li>
-          <router-link :to="{ path: '/' }" class="nav__item">{{ $t('startLive') }}</router-link>
+          <router-link :to="{ path: '/startLive' }" class="nav__item">{{ $t('startLive') }}</router-link>
         </li>
       </ul>
       <div class="divide" />
@@ -35,6 +35,7 @@ export default {
   width: 240px;
   height: 100%;
   background-color: #f7f7f7;
+  z-index: 2;
 
   .divide {
     height: 1px;

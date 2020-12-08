@@ -27,5 +27,6 @@ export default {
   height: 100%;
   background-color: #000000;
   opacity: 0.7;
+  z-index: 1;
 }
 </style>
