@@ -1,4 +1,7 @@
 {
   "logo": "ViVi",
+  "home": "홈",
+  "live": "라이브",
+  "startLive": "방송하기",
   "message": "hello i18n !!"
 }

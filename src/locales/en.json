@@ -1,4 +1,7 @@
 {
   "logo": "ViVi",
+  "home": "Home",
+  "live": "Live",
+  "startLive": "Start Live",
   "message": "hello i18n !!"
 }

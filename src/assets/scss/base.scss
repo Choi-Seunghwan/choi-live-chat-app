@@ -6,6 +6,10 @@ body {
   @include theme-color('background', 'color-background');
 }
 
+a {
+  text-decoration: none;
+}
+
 // @custom-media --viewport-4 (min-width: 480px);
 // @custom-media --viewport-7 (min-width: 768px);
 // @custom-media --viewport-9 (min-width: 992px);
