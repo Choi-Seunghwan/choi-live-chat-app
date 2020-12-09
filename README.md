@@ -4,7 +4,7 @@
 
 👨‍💻 개발 중 !
 
-(Server Ropo.)[https://github.com/Choi-Seunghwan/vivi-server]
+[Server Ropo.](https://github.com/Choi-Seunghwan/vivi-server)
 
 ### Tech
 
