@@ -9,6 +9,10 @@ const mutations = {};
 const getters = {};
 
 const actions = {
+  initNetworkConnector({ dispatch }) {
+    dispatch('connection');
+  },
+
   connection() {
     ws.connection();
   }

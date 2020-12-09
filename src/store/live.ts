@@ -12,7 +12,9 @@ const mutations = {};
 const getters = {};
 
 const actions = {
-  startLive() {},
+  startLive() {
+    ws.sendMessage('live/startLive', [{}, {}, { a: {}, b: ['a', 'b', {}] }]);
+  },
 
   roomEnter() {
     ws.connection();
@@ -26,8 +28,8 @@ const actions = {
     });
   },
 
-  callUser(offer) {
-    ws.callUser(offer);
+  handleMessage({ state }, args) {
+    console.log('live handleMessage', state, args);
   }
 };
 

@@ -1,4 +1,5 @@
 import io from 'socket.io-client';
+import store from '@/store';
 
 class ServiceWebSocket {
   ws;
@@ -16,20 +17,26 @@ class ServiceWebSocket {
     };
   }
 
+  wsInit() {
+    this.connection();
+  }
+
   connection() {
     this.ws = io('localhost:5000');
-  }
 
-  sendMessage(method, param) {
-    if (!this.ws) return false;
-    console.log('sendMessage', method, param);
-    this.ws.emit('message', method, param);
-  }
-
-  callUser(offer) {
-    this.ws.emit('call-user', {
-      offer
+    this.ws.on('replyMessage', args => {
+      this.replyMessage(args);
     });
+  }
+
+  sendMessage(method, args) {
+    if (!this.ws) return false;
+    this.ws.emit('message', method, args);
+  }
+
+  replyMessage(args) {
+    const splitedMethod = args[0];
+    store.dispatch(`${splitedMethod[0]}/handleMessage`, args), { root: true };
   }
 }
 

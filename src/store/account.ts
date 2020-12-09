@@ -27,6 +27,10 @@ const actions = {
         state.loggedIn = data.result;
       }
     });
+  },
+
+  handleMessage({ state }, args) {
+    console.log('account handleMessage', state, args);
   }
 };
 

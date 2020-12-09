@@ -20,13 +20,22 @@
       </div>
     </div>
     <div class="interface">
-      <button>{{ $t('startLive') }}</button>
+      <button @click="startLiveBtnHandler">{{ $t('startLive') }}</button>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { mapActions } from 'vuex';
+
+export default {
+  methods: {
+    ...mapActions('live', ['startLive']),
+    startLiveBtnHandler() {
+      this.startLive();
+    }
+  }
+};
 </script>
 
 <style lang="scss">
