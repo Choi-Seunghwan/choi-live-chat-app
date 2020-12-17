@@ -12,8 +12,12 @@ const mutations = {};
 const getters = {};
 
 const actions = {
-  startLive() {
-    ws.sendMessage('live/startLive', [{}, {}, { a: {}, b: ['a', 'b', {}] }]);
+  async startLive({ dispatch, rootGetters }, roomInfo) {
+    await dispatch('media/createOffer', true, { root: true });
+
+    const offer = rootGetters['media/getLocalDescriptionOffer'];
+    console.log('offer', offer);
+    ws.sendMessage('live/startLive', [{ ...roomInfo, offer }]);
   },
 
   roomEnter() {

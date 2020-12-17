@@ -1,12 +1,17 @@
 const state = () => ({
   localStream: undefined,
   roomStream: undefined,
-  peerConnection: undefined
+  peerConnection: undefined,
+  localDescriptionOffer: undefined
 });
 
 const mutations = {};
 
-const getters = {};
+const getters = {
+  getLocalDescriptionOffer(state) {
+    return state.localDescriptionOffer;
+  }
+};
 
 const actions = {
   initMedia({ state }) {
@@ -39,7 +44,7 @@ const actions = {
     const { RTCSessionDescription } = window;
     const offer = await state.peerConnection.createOffer();
     await state.peerConnection.setLocalDescription(new RTCSessionDescription(offer));
-    return offer;
+    state.localDescriptionOffer = offer;
   }
 };
 

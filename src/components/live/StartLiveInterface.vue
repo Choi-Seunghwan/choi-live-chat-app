@@ -16,7 +16,7 @@
     <div class="liveForm">
       <div class="title">
         <h4 class="title__text">{{ $t('title') }}</h4>
-        <input :placeholder="$t('title')" class="title__input" />
+        <input :placeholder="$t('title')" v-model="titleInput" class="title__input" />
       </div>
     </div>
     <div class="interface">
@@ -29,10 +29,16 @@
 import { mapActions } from 'vuex';
 
 export default {
+  data() {
+    return {
+      titleInput: ''
+    };
+  },
   methods: {
     ...mapActions('live', ['startLive']),
     startLiveBtnHandler() {
-      this.startLive();
+      const roomInfo = { title: this.titleInput };
+      this.startLive(roomInfo);
     }
   }
 };
