@@ -3,8 +3,6 @@
     <div class="info"></div>
     <VideoPlayer ref="localVideo" :videoId="'localVideo'"></VideoPlayer>
     <VideoPlayer ref="roomVideo" :videoId="'roomVideo'"></VideoPlayer>
-
-    <button @click="callHandler">Call User</button>
   </div>
 </template>
 <script>
@@ -26,8 +24,7 @@ export default {
     ...mapActions('live', ['callUser']),
     ...mapActions('media', ['getDeviceMedia', 'createOffer', 'setLocalStreamVideoEl']),
     callHandler() {
-      const offer = this.createOffer();
-      this.callUser(offer);
+      // const offer = this.createOffer();
     }
   },
   async mounted() {

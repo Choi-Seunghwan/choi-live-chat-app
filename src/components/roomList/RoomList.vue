@@ -2,7 +2,11 @@
   <div class="roomList">
     <div class="roomItemContainer" v-for="(roomItem, roomListIndex) in roomList" :key="roomListIndex">
       <div class="roomItem">
-        <RoomCard @click="roomCardClickHandler" :title="roomItem.title" :memberCount="roomItem.memberCount" />
+        <RoomCard
+          @click.native="roomCardClickHandler(roomItem)"
+          :title="roomItem.title"
+          :memberCount="roomItem.memberCount"
+        />
       </div>
     </div>
   </div>
@@ -22,8 +26,11 @@ export default {
     }
   },
   methods: {
-    ...mapActions('live', ['roomEnter']),
-    roomCardClickHandler() {}
+    ...mapActions('live', ['enterRoom']),
+    roomCardClickHandler(roomItem) {
+      const { roomId } = roomItem;
+      this.$router.push(`/liveRoom/${roomId}`);
+    }
   }
 };
 </script>

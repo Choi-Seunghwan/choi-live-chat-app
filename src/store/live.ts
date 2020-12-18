@@ -15,13 +15,14 @@ const actions = {
   async startLive({ dispatch, rootGetters }, roomInfo) {
     await dispatch('media/createOffer', true, { root: true });
 
-    const offer = rootGetters['media/getLocalDescriptionOffer'];
-    console.log('offer', offer);
-    ws.sendMessage('live/startLive', [{ ...roomInfo, offer }]);
+    const localDescriptionOffer = rootGetters['media/getLocalDescriptionOffer'];
+    ws.sendMessage('live/startLive', [{ ...roomInfo, localDescriptionOffer }]);
   },
 
-  roomEnter() {
-    ws.connection();
+  enterRoom({ state }, roomId) {
+    // ws.connection();
+    state;
+    ws.sendMessage('live/enterRoom', [{ roomId }]);
   },
 
   async getRoomList({ state }) {
