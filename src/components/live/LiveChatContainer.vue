@@ -1,5 +1,7 @@
 <template>
-  <div class="liveChatContainer"></div>
+  <div class="liveChatContainer">
+    <div></div>
+  </div>
 </template>
 
 <script>
