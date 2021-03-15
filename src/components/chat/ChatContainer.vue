@@ -1,5 +1,5 @@
 <template>
-  <div class="liveChatContainer">
+  <div class="ChatContainer">
     <div></div>
   </div>
 </template>
