@@ -1,4 +1,5 @@
 <template>
+  <!-- 임시  -->
   <div class="liveViewer">
     <div class="info"></div>
     <VideoPlayer ref="localVideo" :videoId="'localVideo'"></VideoPlayer>

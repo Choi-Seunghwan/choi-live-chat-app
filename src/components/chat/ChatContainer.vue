@@ -1,11 +1,19 @@
 <template>
   <div class="ChatContainer">
-    <div></div>
+    <ChatDialog />
+    <ChatController />
   </div>
 </template>
 
 <script>
-export default {};
+import ChatDialog from './ChatDialog.vue';
+import ChatController from './ChatController';
+export default {
+  components: {
+    ChatDialog,
+    ChatController
+  }
+};
 </script>
 
 <style></style>
