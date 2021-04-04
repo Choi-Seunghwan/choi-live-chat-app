@@ -1,6 +1,7 @@
 import ws from '../services/webSocket.js';
 import api from '../services/api.js';
 import { HTTP_STATUS } from '../util/constant';
+import { TYPE_RADIO } from '@/constant';
 
 const state = () => ({
   roomList: [],
@@ -12,6 +13,7 @@ const mutations = {};
 const getters = {};
 
 const actions = {
+  async createRoom(_, { title, type = TYPE_RADIO }) {},
   async startLive({ dispatch, rootGetters }, roomInfo) {
     await dispatch('media/createOffer', true, { root: true });
 
