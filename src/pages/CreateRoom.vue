@@ -1,20 +1,20 @@
 <template>
-  <div class="startLive">
-    <StartLiveInterface />
+  <div class="createRoom">
+    <RoomCreatorContainer />
   </div>
 </template>
 
 <script>
-import StartLiveInterface from '@/components/live/StartLiveInterface.vue';
+import RoomCreatorContainer from '@/components/live/RoomCreatorContainer.vue';
 export default {
   components: {
-    StartLiveInterface
+    RoomCreatorContainer
   }
 };
 </script>
 
 <style lang="scss">
-.startLive {
+RoomCreatorContainer.startLive {
   position: absolute;
   top: 50%;
   left: 50%;

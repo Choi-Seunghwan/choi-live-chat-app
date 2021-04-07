@@ -1,5 +1,5 @@
 <template>
-  <div class="StartLiveInterface">
+  <div class="roomCreatorContainer">
     <div class="liveType">
       <h4 class="liveType__text">
         {{ $t('liveType') }}
@@ -35,17 +35,17 @@ export default {
     };
   },
   methods: {
-    ...mapActions('live', ['startLive']),
+    ...mapActions('live', ['createRoom']),
     startLiveBtnHandler() {
       const roomInfo = { title: this.titleInput };
-      this.startLive(roomInfo);
+      this.createRoom(roomInfo);
     }
   }
 };
 </script>
 
 <style lang="scss">
-.StartLiveInterface {
+.roomCreatorContainer {
   .liveType {
     &__inputs {
       display: flex;
