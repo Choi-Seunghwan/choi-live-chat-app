@@ -1,7 +1,7 @@
 <template>
   <aside v-show="showSideNav" class="sideNav">
     <nav class="nav">
-      <ul>
+      <ul @click="onListClick">
         <li>
           <router-link :to="{ path: '/' }" class="nav__item">{{ $t('home') }}</router-link>
         </li>
@@ -18,10 +18,16 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 export default {
   computed: {
     ...mapState('context', ['showSideNav'])
+  },
+  methods: {
+    ...mapActions('context', ['setSideNav']),
+    onListClick() {
+      this.setSideNav(false);
+    }
   }
 };
 </script>
