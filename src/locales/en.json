@@ -7,5 +7,6 @@
   "broadcast": "Broadcast",
   "radio": "Radio",
   "title": "Title",
-  "message": "hello i18n !!"
+  "message": "hello i18n !!",
+  "send": "send"
 }

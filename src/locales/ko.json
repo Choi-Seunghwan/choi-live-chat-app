@@ -7,5 +7,6 @@
   "broadcast": "방송",
   "radio": "라디오",
   "title": "제목",
-  "message": "hello i18n !!"
+  "message": "hello i18n !!",
+  "send": "전송"
 }
