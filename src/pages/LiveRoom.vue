@@ -1,19 +1,20 @@
 <template>
   <div class="live">
-    <ChatContainer />
+    <LiveViewerContainer />
   </div>
 </template>
 <script>
-import ChatContainer from '@/components/chat/ChatContainer.vue';
+import LiveViewerContainer from '@/components/liveViewer/LiveViewerContainer.vue';
 import { mapActions } from 'vuex';
 
 export default {
   components: {
-    ChatContainer
+    LiveViewerContainer
   },
   props: {},
   methods: {
-    ...mapActions('live', ['enterRoom'])
+    ...mapActions('live', ['enterRoom']),
+    init() {}
   },
   beforeMount() {
     // const roomId = this.$route.params.roomId;
