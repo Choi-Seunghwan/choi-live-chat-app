@@ -15,7 +15,7 @@
 </template>
 <script>
 import { mapActions } from 'vuex';
-import User from '@/components/account/User';
+import User from '@/components/user/User';
 
 export default {
   name: 'TopNav',

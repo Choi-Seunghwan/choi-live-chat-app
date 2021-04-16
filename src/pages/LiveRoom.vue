@@ -14,12 +14,12 @@ export default {
   props: {},
   methods: {
     ...mapActions('live', ['enterRoom']),
-    init() {}
+    init() {
+      const roomId = this.$route.params.roomId;
+      this.enterRoom(roomId);
+    }
   },
-  beforeMount() {
-    // const roomId = this.$route.params.roomId;
-    // this.enterRoom(roomId);
-  },
+  beforeMount() {},
   mounted() {}
 };
 </script>

@@ -24,9 +24,7 @@ const actions = {
   },
 
   enterRoom({ state }, roomId) {
-    // ws.connection();
-    state;
-    ws.sendMessage('live/enterRoom', [{ roomId }]);
+    ws.sendMessage('live/enterRoom', { roomId });
   },
 
   async getRoomList({ state }) {

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import RoomCreatorContainer from '@/components/live/RoomCreatorContainer.vue';
+import RoomCreatorContainer from '@/components/roomCreator/RoomCreatorContainer.vue';
 export default {
   components: {
     RoomCreatorContainer
