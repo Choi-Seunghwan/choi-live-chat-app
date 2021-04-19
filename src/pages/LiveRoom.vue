@@ -13,13 +13,16 @@ export default {
   },
   props: {},
   methods: {
-    ...mapActions('live', ['enterRoom']),
+    ...mapActions('live', ['joinRoom']),
     init() {
-      const roomId = this.$route.params.roomId;
-      this.enterRoom(roomId);
+      const roomId = Number(this.$route.params.roomId);
+
+      this.joinRoom(roomId);
     }
   },
-  beforeMount() {},
+  beforeMount() {
+    this.init();
+  },
   mounted() {}
 };
 </script>

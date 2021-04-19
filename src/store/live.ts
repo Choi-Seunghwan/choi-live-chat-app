@@ -23,8 +23,9 @@ const actions = {
     ws.sendMessage('live/startLive', [{ ...roomInfo, localDescriptionOffer }]);
   },
 
-  enterRoom({ state }, roomId) {
-    ws.sendMessage('live/enterRoom', { roomId });
+  joinRoom({ state }, roomId: string) {
+    console.log('@@ hre');
+    ws.sendMessage('live/joinRoom', { roomId });
   },
 
   async getRoomList({ state }) {
