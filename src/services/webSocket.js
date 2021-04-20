@@ -35,8 +35,8 @@ class ServiceWebSocket {
   }
 
   replyMessage(args) {
-    const splitedMethod = args[0];
-    store.dispatch(`${splitedMethod[0]}/handleMessage`, args), { root: true };
+    const { message } = args;
+    store.dispatch(`${message[0]}/handleMessage`, args), { root: true };
   }
 }
 

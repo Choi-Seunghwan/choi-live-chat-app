@@ -5,7 +5,8 @@ import { TYPE_RADIO } from '@/constant';
 
 const state = () => ({
   roomList: [],
-  member: []
+  member: [],
+  currentRoom: {}
 });
 
 const mutations = {};
