@@ -4,7 +4,7 @@
       <input v-model="chatText" class="inputWrap__chatText" />
     </div>
     <div class="btnWrap">
-      <button class="controller__submit">{{ $t('send') }}</button>
+      <button @click="sendBtnHandler" class="controller__submit">{{ $t('send') }}</button>
     </div>
   </div>
 </template>
@@ -13,7 +13,12 @@
 export default {
   data: () => ({
     chatText: ''
-  })
+  }),
+  methods: {
+    sendBtnHandler() {
+      this.$emit('sendMessage', this.chatText);
+    }
+  }
 };
 </script>
 
