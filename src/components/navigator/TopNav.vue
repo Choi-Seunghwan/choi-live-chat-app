@@ -39,7 +39,7 @@ export default {
 @import '@/assets/scss/theme';
 
 .topNav {
-  @include theme-color('background', 'color-primary');
+  // @include theme-color('background', 'color-gradient-primary');
   width: 100%;
   height: 56px;
   display: flex;

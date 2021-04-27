@@ -8,11 +8,13 @@
 
 $theme-color-palette: (
   default: (
-    color-background: #eeeeee,
+    color-background: #181818,
+    color-background-solid: #212121,
     color-primary: #1e1146,
     color-secondary: #0db4ba,
     color-third: #f0a29e,
-    color-accent: #e76c89
+    color-accent: #e76c89,
+    color-gradient-primary: linear-gradient(90deg, rgba(222, 201, 233, 1) 0%, rgba(98, 71, 170, 1) 100%)
   ),
   dark: (
     color-background: black
