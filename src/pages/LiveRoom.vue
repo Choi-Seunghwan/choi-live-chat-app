@@ -15,8 +15,7 @@ export default {
   methods: {
     ...mapActions('live', ['joinRoom']),
     init() {
-      const roomId = Number(this.$route.params.roomId);
-
+      const roomId = String(this.$route.params.roomId);
       this.joinRoom(roomId);
     }
   },
