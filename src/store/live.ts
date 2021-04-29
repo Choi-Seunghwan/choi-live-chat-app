@@ -15,7 +15,9 @@ const mutations = {
   setCurrentLiveRoom: (state, room) => (state.currentLiveRoom = room)
 };
 
-const getters = {};
+const getters = {
+  _currentLiveRoomId: state => state.currentLiveRoomId
+};
 
 const actions = {
   async createRoom(_, { title, type = TYPE_RADIO }) {
@@ -45,9 +47,9 @@ const actions = {
     console.log('@@', args);
     switch (message[1]) {
       case 'joinRoom': {
-        const { room } = args;
+        const { room } = args.result;
         const { roomId } = room;
-        commit(SET_CURRENT_LIVE_ROOM_ID, room);
+        commit(SET_CURRENT_LIVE_ROOM_ID, roomId);
         break;
       }
       default:

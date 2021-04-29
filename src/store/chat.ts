@@ -10,11 +10,12 @@ const mutations = {};
 const getters = {};
 
 const actions = {
-  sendChatMessage(_, { roomId, message }) {
+  sendChatMessage({ rootGetters }, { message }) {
+    // const roomId = rootGetters['live/_currentLiveRoomId'];
     ws.sendMessage('live/sendChatMessage', { roomId, message });
   },
   handleMessage({ state }, args) {
-    console.log('live handleMessage', state, args);
+    console.log('chat handleMessage', state, args);
   }
 };
 
