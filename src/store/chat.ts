@@ -11,7 +11,7 @@ const getters = {};
 
 const actions = {
   sendChatMessage({ rootGetters }, { message }) {
-    // const roomId = rootGetters['live/_currentLiveRoomId'];
+    const roomId = rootGetters['live/_currentLiveRoomId'];
     ws.sendMessage('live/sendChatMessage', { roomId, message });
   },
   handleMessage({ state }, args) {

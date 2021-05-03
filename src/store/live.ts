@@ -23,6 +23,7 @@ const actions = {
   async createRoom(_, { title, type = TYPE_RADIO }) {
     ws.sendMessage('live/createRoom', { title, type });
   },
+
   async startLive({ dispatch, rootGetters }, roomInfo) {
     await dispatch('media/createOffer', true, { root: true });
 

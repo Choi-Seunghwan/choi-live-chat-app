@@ -36,6 +36,7 @@ class ServiceWebSocket {
 
   replyMessage(args) {
     const { message } = args;
+    console.log('replyMessage', args);
     store.dispatch(`${message[0]}/handleMessage`, args), { root: true };
   }
 }
