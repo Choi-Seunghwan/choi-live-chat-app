@@ -14,8 +14,23 @@ const actions = {
     const roomId = rootGetters['live/_currentLiveRoomId'];
     ws.sendMessage('live/sendChatMessage', { roomId, message });
   },
-  handleMessage({ state }, args) {
+  receiveChatMessage() {
+    console.log('receiveChatMessage');
+  },
+  handleMessage({ state, dispatch }, args) {
+    const { method } = args;
+    const splittedMethod = method.split('/');
     console.log('chat handleMessage', state, args);
+
+    switch (splittedMethod[1]) {
+      case 'receiveChatMessage': {
+        dispatch('receiveChatMessage', args);
+        break;
+      }
+      default: {
+        break;
+      }
+    }
   }
 };
 

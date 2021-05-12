@@ -44,9 +44,11 @@ const actions = {
   },
 
   handleMessage({ state, commit }, args) {
-    const { message } = args;
+    const { method } = args;
+    const splittedMethod = method.split('/');
     console.log('@@', args);
-    switch (message[1]) {
+
+    switch (method[1]) {
       case 'joinRoom': {
         const { room } = args.result;
         const { roomId } = room;

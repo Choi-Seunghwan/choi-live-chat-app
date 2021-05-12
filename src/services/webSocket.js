@@ -35,9 +35,11 @@ class ServiceWebSocket {
   }
 
   replyMessage(args) {
-    const { message } = args;
+    const { method } = args;
+    const splittedMethod = method.split('/');
+
     console.log('replyMessage', args);
-    store.dispatch(`${message[0]}/handleMessage`, args), { root: true };
+    store.dispatch(`${splittedMethod[0]}/handleMessage`, args), { root: true };
   }
 }
 
