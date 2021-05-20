@@ -1,13 +1,14 @@
 <template>
-  <div class="roomList">
-    <div class="roomItemContainer" v-for="(roomItem, roomListIndex) in roomList" :key="roomListIndex">
-      <div class="roomItem">
-        <RoomCard
-          @click.native="roomCardClickHandler(roomItem)"
-          :title="roomItem.title"
-          :memberCount="roomItem.memberCount"
-        />
-      </div>
+  <div class="roomItemContainer">
+    <div class="roomList">
+      <RoomCard
+        v-for="(roomItem, roomListIndex) in roomList"
+        :key="roomListIndex"
+        @click.native="roomCardClickHandler(roomItem)"
+        :title="roomItem.title"
+        :memberCount="roomItem.memberCount"
+        class="roomList__room"
+      />
     </div>
   </div>
 </template>
@@ -19,38 +20,42 @@ export default {
   components: {
     RoomCard
   },
-  props: {
-    roomList: {
-      required: true,
-      default: []
-    }
-  },
+  data: () => ({
+    loading: true,
+    roomList: []
+  }),
   methods: {
-    ...mapActions('live', ['enterRoom']),
+    ...mapActions('live', ['enterRoom', 'getRoomList']),
     roomCardClickHandler(roomItem) {
       const { roomId } = roomItem;
       this.$router.push(`/liveRoom/${roomId}`);
+    },
+    async init() {
+      this.roomList = await this.getRoomList();
+      this.loading = false;
     }
+  },
+  async beforeMount() {
+    this.roomList = await this.getRoomList();
+    this.init();
   }
 };
 </script>
 <style lang="scss">
-.roomList {
-  display: flex;
-  flex-wrap: wrap;
+.roomItemContainer {
+  .roomList {
+    display: flex;
+    flex-wrap: wrap;
 
-  .roomItemContainer {
-    flex: 0 0 100%;
+    &__room {
+      flex-grow: 25%;
 
-    @media (min-width: 520px) {
-      flex: 0 0 50%;
-    }
-    @media (min-width: 992px) {
-      flex: 0 0 25%;
-    }
-
-    .roomItem {
-      margin: 10px;
+      @media (min-width: 520px) {
+        flex: 0 0 50%;
+      }
+      @media (min-width: 992px) {
+        flex: 0 0 25%;
+      }
     }
   }
 }

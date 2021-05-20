@@ -2,10 +2,9 @@ import ws from '../services/webSocket.js';
 import api from '../services/api.js';
 import { HTTP_STATUS } from '../util/constant';
 import { TYPE_RADIO, SET_CURRENT_LIVE_ROOM_ID } from '@/constant';
+import _get from 'lodash/get';
 
 const state = () => ({
-  roomList: [],
-  member: [],
   currentLiveRoom: {},
   currentLiveRoomId: ''
 });
@@ -35,24 +34,31 @@ const actions = {
     ws.sendMessage('live/joinRoom', { roomId });
   },
 
-  async getRoomList({ state }) {
-    await api.get('live/roomList', (status, data) => {
-      if (status === HTTP_STATUS.OK && data.roomList) {
-        state.roomList = data.roomList;
-      }
-    });
+  outRoom({ state }) {
+    const { roomId } = state.currentLiveRoom;
+    ws.sendMessage('live/outRoom', { roomId });
+  },
+
+  async getRoomList() {
+    const res = await api.get('live/roomList');
+    const roomList = _get(res, 'result.roomList', []);
+
+    return roomList;
   },
 
   handleMessage({ state, commit }, args) {
     const { method } = args;
     const splittedMethod = method.split('/');
-    console.log('@@', args);
 
-    switch (method[1]) {
+    switch (splittedMethod[1]) {
       case 'joinRoom': {
         const { room } = args.result;
         const { roomId } = room;
         commit(SET_CURRENT_LIVE_ROOM_ID, roomId);
+        break;
+      }
+
+      case 'outRoom': {
         break;
       }
       default:

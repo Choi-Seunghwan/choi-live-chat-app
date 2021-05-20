@@ -2,11 +2,11 @@ import axios from 'axios';
 
 class API {
   constructor() {
-    let api = axios.create({
+    let _axios = axios.create({
       baseURL: process.env.VUE_APP_API_SERVER_ADDR + '/api'
     });
-    api.interceptors.response.use(this.handleSuccess, this.handleError);
-    this.api = api;
+    _axios.interceptors.response.use(this.handleSuccess, this.handleError);
+    this._axios = _axios;
   }
 
   handleSuccess(response) {
@@ -23,30 +23,38 @@ class API {
     return Promise.reject(error);
   };
 
-  get(path, callback) {
-    return this.api.get(path).then(response => callback(response.status, response.data));
+  makeApiError(error) {
+    return { errorCode: 'DEFAULT_ERROR', error };
   }
 
-  patch(path, payload, callback) {
-    return this.api
+  get(path) {
+    return this._axios
+      .get(path)
+      .then(response => response.data)
+      .catch(error => this.makeApiError(error));
+  }
+
+  patch(path, payload) {
+    return this._axios
       .request({
         method: 'PATCH',
         url: path,
         responseType: 'json',
         data: payload
       })
-      .then(response => callback(response.status, response.data));
+      .then(response => response.data)
+      .catch(error => this.makeApiError(error));
   }
 
-  post(path, payload, callback) {
-    return this.api
+  post(path, payload) {
+    return this._axios
       .request({
         method: 'POST',
         url: path,
         responseType: 'json',
         data: payload
       })
-      .then(response => callback(response.status, response.data));
+      .then(response => response.data);
   }
 }
 

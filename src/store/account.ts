@@ -21,12 +21,10 @@ const actions = {
   },
 
   async login({ state }) {
-    await api.get('account/login', (status, data) => {
-      if (status === HTTP_STATUS.OK && data) {
-        state.nickname = data.nickname;
-        state.loggedIn = data.result;
-      }
-    });
+    const res = await api.get('account/login');
+
+    // state.nickname = data.nickname;
+    // state.loggedIn = data.result;
   },
 
   handleMessage({ state }, args) {

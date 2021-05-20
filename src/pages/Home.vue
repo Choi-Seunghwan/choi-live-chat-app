@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- <Banner></Banner> -->
-    <RoomListContainer :roomList="roomList"></RoomListContainer>
+    <RoomListContainer />
   </div>
 </template>
 <script>
@@ -14,15 +14,8 @@ export default {
     // Banner,
     RoomListContainer
   },
-  computed: {
-    ...mapState('live', ['roomList'])
-  },
-  methods: {
-    ...mapActions('live', ['getRoomList'])
-  },
-  mounted() {
-    this.getRoomList();
-  }
+  computed: {},
+  methods: {}
 };
 </script>
 <style lang="scss"></style>
