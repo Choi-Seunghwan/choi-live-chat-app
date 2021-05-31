@@ -1,5 +1,5 @@
 <template>
-  <div class="ChatController">
+  <div class="ChatControl">
     <div class="inputWrap">
       <input v-model="chatText" class="inputWrap__chatText" />
     </div>
@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.ChatController {
+.ChatControl {
   display: flex;
   justify-content: center;
   .inputWrap {

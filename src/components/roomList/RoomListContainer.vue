@@ -48,13 +48,13 @@ export default {
     flex-wrap: wrap;
 
     &__room {
-      flex-grow: 25%;
+      flex-basis: 25%;
 
       @media (min-width: 520px) {
-        flex: 0 0 50%;
+        flex-basis: 50%;
       }
       @media (min-width: 992px) {
-        flex: 0 0 25%;
+        flex-basis: 25%;
       }
     }
   }

@@ -10,8 +10,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: 'undefined title',
-      required: true
+      default: ''
     }
   }
 };

@@ -1,6 +1,5 @@
 import ws from '../services/webSocket.js';
 import api from '../services/api.js';
-import { HTTP_STATUS } from '../util/constant';
 import { TYPE_RADIO, SET_CURRENT_LIVE_ROOM_ID } from '@/constant';
 import _get from 'lodash/get';
 
