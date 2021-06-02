@@ -1,7 +1,7 @@
 <template>
   <div class="ChatContainer">
     <ChatDialog />
-    <ChatController @sendMessage="sendMessage" />
+    <ChatControl @sendMessage="sendMessage" />
   </div>
 </template>
 
@@ -9,12 +9,12 @@
 import Vue from 'vue';
 import { mapActions } from 'vuex';
 import ChatDialog from './ChatDialog.vue';
-import ChatController from './ChatController.vue';
+import ChatControl from './ChatControl.vue';
 
 export default Vue.extend({
   components: {
     ChatDialog,
-    ChatController
+    ChatControl
   },
   props: {
     roomId: {
