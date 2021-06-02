@@ -5,17 +5,19 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue';
 import { mapActions } from 'vuex';
 import ChatDialog from './ChatDialog.vue';
 import ChatControl from './ChatControl.vue';
+import chatMixin from '@/mixin/chatMixin';
 
-export default Vue.extend({
+export default {
   components: {
     ChatDialog,
     ChatControl
   },
+  mixins: [chatMixin],
   props: {
     roomId: {
       type: String,
@@ -24,21 +26,15 @@ export default Vue.extend({
   },
   methods: {
     ...mapActions('chat', ['sendChatMessage']),
-    init() {
-      this.$store.subscribeAction((action, state) => {
-        if (action.type === 'chat/receiveChatMessage') {
-          //
-        }
-      });
-    },
+
     sendMessage(message) {
       this.sendChatMessage({ roomId: this.roomId, message });
     }
   },
   beforeMount() {
-    this.init();
+    this.initSubscribeAction();
   }
-});
+};
 </script>
 
 <style lang="scss">
