@@ -9,18 +9,30 @@
       </h1>
     </div>
     <div class="rightWrapper">
-      <User />
+      <UserController v-if="isLogin" v-slot="{ nickname, avatarSrc }">
+        <UserAvatar v-bind="{ nickname, avatarSrc }" />
+      </UserController>
+      <div v-else>
+        <button @click="loginBtnHandler">Login</button>
+      </div>
     </div>
   </nav>
 </template>
 <script>
-import { mapActions } from 'vuex';
-import User from '@/components/user/User';
+import { mapActions, mapGetters } from 'vuex';
+import pageRouteMixin from '@/mixin/pageRouteMixin';
+import UserController from '@/components/user/UserController.vue';
+import UserAvatar from '@/components/user/UserAvatar.vue';
 
 export default {
   name: 'TopNav',
+  mixins: [pageRouteMixin],
   components: {
-    User
+    UserController,
+    UserAvatar
+  },
+  computed: {
+    ...mapGetters('account', ['isLogin'])
   },
   methods: {
     ...mapActions('context', ['toggleSideNav']),
@@ -31,6 +43,10 @@ export default {
 
     menuIconHandler() {
       this.toggleSideNav();
+    },
+
+    loginBtnHandler() {
+      this.$_routeLoginPage();
     }
   }
 };

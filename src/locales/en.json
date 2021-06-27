@@ -8,5 +8,6 @@
   "radio": "Radio",
   "title": "Title",
   "message": "hello i18n !!",
-  "send": "send"
+  "send": "send",
+  "LOGIN_TITLE": "Login"
 }
