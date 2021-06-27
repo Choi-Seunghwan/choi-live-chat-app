@@ -26,6 +26,7 @@ export default {
 .ChatControl {
   display: flex;
   justify-content: center;
+
   .inputWrap {
     flex-basis: 50%;
     margin-right: 15px;

@@ -4,7 +4,7 @@ const chatMixin = {
     unsubscribeFunc: undefined
   }),
   methods: {
-    initSubscribeAction(handler) {
+    $initreceiveChatMessageHandler(handler) {
       this.receiveHandler = handler;
       this.unsubscribeFunc = this.$store.subscribeAction((action, state) => {
         if (action.type === 'chat/receiveChatMessage') {

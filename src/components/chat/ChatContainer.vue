@@ -1,5 +1,6 @@
 <template>
-  <div class="ChatContainer">
+  <div class="chatContainer">
+    <slot name="background"></slot>
     <ChatDialog />
     <ChatControl @sendMessage="sendMessage" />
   </div>
@@ -25,6 +26,7 @@ export default {
   },
   methods: {
     ...mapActions('chat', ['sendChatMessage']),
+
     receiveChatMessageHandler(args) {
       console.log('args', args);
     },
@@ -33,12 +35,16 @@ export default {
     }
   },
   beforeMount() {
-    this.initSubscribeAction(this.receiveChatMessageHandler.bind(this));
+    this.initReceiveChatMessageHandler(this.receiveChatMessageHandler.bind(this));
   }
 };
 </script>
 
 <style lang="scss">
-.ChatContainer {
+.chatContainer {
+  width: 100%;
+  height: 600px;
+  background-color: #d3d3d3;
+  margin-bottom: 20px;
 }
 </style>

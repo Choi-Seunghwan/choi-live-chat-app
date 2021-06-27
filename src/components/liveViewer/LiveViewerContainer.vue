@@ -1,15 +1,21 @@
 <template>
   <div class="LiveViewerContainer">
-    <ChatContainer />
+    <ChatContainer>
+      <template v-slot:background>
+        <VideoContainer />
+      </template>
+    </ChatContainer>
   </div>
 </template>
 
 <script>
 import ChatContainer from '@/components/chat/ChatContainer.vue';
+import VideoContainer from '@/components/video/VideoController.vue';
 
 export default {
   components: {
-    ChatContainer
+    ChatContainer,
+    VideoContainer
   }
 };
 </script>
