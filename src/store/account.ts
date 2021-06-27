@@ -1,30 +1,45 @@
 import api from '../services/api.js';
-import { HTTP_STATUS } from '../util/constant';
+import { AccountInfo } from '@/utils/types';
+import _get from 'lodash/get';
 
 const state = () => ({
-  loggedIn: false,
-  nickname: ''
+  accountInfo: undefined
 });
 
-const mutations = {};
+const mutations = {
+  setAccountInfo: (state, v) => (state.accountInfo = v)
+};
 
 const getters = {
   getNickname(state) {
-    if (state.nickname) return state.nickname;
-    else return 'defaultNickname';
+    return _get(state, 'accountInfo.nickname', '');
+  },
+  isLogin(state) {
+    if (state.accountInfo) return true;
+    return false;
   }
 };
 
 const actions = {
   initAccount({ dispatch }) {
-    dispatch('login');
+    // dispatch('login');
   },
 
-  async login({ state }) {
-    const res = await api.get('account/login');
+  async login({ commit }, { username, password }) {
+    if (!username && !password) return;
 
-    // state.nickname = data.nickname;
-    // state.loggedIn = data.result;
+    const res = await api.post('account/login', { username, password });
+    const errorCode = _get(res, 'errorCode');
+
+    if (errorCode) return res;
+
+    const accountInfo: AccountInfo = _get(res, 'result.accountInfo');
+
+    if (accountInfo) {
+      commit('setAccountInfo', accountInfo);
+    }
+
+    return res;
   },
 
   handleMessage({ state }, args) {

@@ -1,30 +1,31 @@
 <template>
-  <div class="user">
+  <div class="userAvatar">
     <div class="avatar">
       <img :src="true ? require(`@/assets/images/user_icon.png`) : ''" class="icon" />
     </div>
-    <div class="identifier">
-      <span class="nickname">{{ getNickname }}</span>
+    <div class="info">
+      <span class="nickname">{{ nickname }}</span>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-
 export default {
-  name: 'User',
-  computed: {
-    ...mapGetters('account', ['getNickname'])
+  props: {
+    nickname: {
+      type: String,
+      defaultProps: ''
+    }
   }
 };
 </script>
 
-<style lang="scss">
-.user {
+<style lang="scss" scoped>
+.userAvatar {
   display: flex;
   justify-content: center;
   align-items: center;
+
   .avatar {
     display: flex;
     width: 30px;
@@ -41,7 +42,7 @@ export default {
     }
   }
 
-  .identifier {
+  .info {
     margin-left: 8px;
     .nickname {
       color: #ffffff;

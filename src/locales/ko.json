@@ -8,5 +8,6 @@
   "radio": "라디오",
   "title": "제목",
   "message": "hello i18n !!",
-  "send": "전송"
+  "send": "전송",
+  "LOGIN_TITLE": "Login"
 }
